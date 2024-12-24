@@ -38,6 +38,19 @@
             width: 100%;
             height: 200px;
         }
+        .description {
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 calc(50% - 2rem);
+            }
+        }
+        @media (max-width: 480px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -48,17 +61,17 @@
     <div class="container">
         <div class="card">
             <h3>Seismic Interpretation</h3>
-            <p>Utilizing AI to enhance seismic data interpretation for better subsurface imaging and analysis.</p>
+            <p class="description">Utilizing AI to enhance seismic data interpretation for better subsurface imaging and analysis. This includes identifying geological features and potential resource locations.</p>
             <div class="chart" id="seismicChart"></div>
         </div>
         <div class="card">
             <h3>Reservoir Characteristics</h3>
-            <p>AI-driven analysis of reservoir properties to optimize extraction and management strategies.</p>
+            <p class="description">AI-driven analysis of reservoir properties to optimize extraction and management strategies. This involves understanding porosity, permeability, and fluid saturation.</p>
             <div class="chart" id="reservoirChart"></div>
         </div>
         <div class="card">
             <h3>AI Predictions</h3>
-            <p>Predictive models powered by AI to forecast subsurface behavior and resource availability.</p>
+            <p class="description">Predictive models powered by AI to forecast subsurface behavior and resource availability. These models help in making informed decisions for drilling and production.</p>
             <div class="chart" id="predictionsChart"></div>
         </div>
     </div>
