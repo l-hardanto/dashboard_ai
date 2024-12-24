@@ -38,6 +38,19 @@
             width: 100%;
             height: 200px;
         }
+        .description {
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 calc(50% - 2rem);
+            }
+        }
+        @media (max-width: 480px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -47,31 +60,34 @@
     </div>
     <div class="container">
         <div class="card">
-            <h3>Data Overview</h3>
-            <div class="chart" id="overviewChart"></div>
+            <h3>Seismic Interpretation</h3>
+            <p class="description">Utilizing AI to enhance seismic data interpretation for better subsurface imaging and analysis. This includes identifying geological features and potential resource locations.</p>
+            <div class="chart" id="seismicChart"></div>
+        </div>
+        <div class="card">
+            <h3>Reservoir Characteristics</h3>
+            <p class="description">AI-driven analysis of reservoir properties to optimize extraction and management strategies. This involves understanding porosity, permeability, and fluid saturation.</p>
+            <div class="chart" id="reservoirChart"></div>
         </div>
         <div class="card">
             <h3>AI Predictions</h3>
+            <p class="description">Predictive models powered by AI to forecast subsurface behavior and resource availability. These models help in making informed decisions for drilling and production.</p>
             <div class="chart" id="predictionsChart"></div>
-        </div>
-        <div class="card">
-            <h3>Engineering Metrics</h3>
-            <div class="chart" id="metricsChart"></div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const ctxOverview = document.getElementById('overviewChart').getContext('2d');
+        const ctxSeismic = document.getElementById('seismicChart').getContext('2d');
+        const ctxReservoir = document.getElementById('reservoirChart').getContext('2d');
         const ctxPredictions = document.getElementById('predictionsChart').getContext('2d');
-        const ctxMetrics = document.getElementById('metricsChart').getContext('2d');
 
-        const overviewChart = new Chart(ctxOverview, {
+        const seismicChart = new Chart(ctxSeismic, {
             type: 'bar',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                labels: ['Layer 1', 'Layer 2', 'Layer 3', 'Layer 4'],
                 datasets: [{
-                    label: 'Data Points',
-                    data: [12, 19, 3, 5, 2, 3],
+                    label: 'Seismic Data',
+                    data: [20, 30, 40, 50],
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
@@ -86,13 +102,13 @@
             }
         });
 
-        const predictionsChart = new Chart(ctxPredictions, {
+        const reservoirChart = new Chart(ctxReservoir, {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                labels: ['Zone A', 'Zone B', 'Zone C', 'Zone D'],
                 datasets: [{
-                    label: 'Predictions',
-                    data: [3, 2, 1, 5, 6, 4],
+                    label: 'Reservoir Quality',
+                    data: [60, 70, 80, 90],
                     backgroundColor: 'rgba(153, 102, 255, 0.2)',
                     borderColor: 'rgba(153, 102, 255, 1)',
                     borderWidth: 1
@@ -107,13 +123,13 @@
             }
         });
 
-        const metricsChart = new Chart(ctxMetrics, {
+        const predictionsChart = new Chart(ctxPredictions, {
             type: 'pie',
             data: {
-                labels: ['Metric 1', 'Metric 2', 'Metric 3'],
+                labels: ['Prediction 1', 'Prediction 2', 'Prediction 3'],
                 datasets: [{
-                    label: 'Metrics',
-                    data: [10, 20, 30],
+                    label: 'Predictions',
+                    data: [30, 40, 30],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
