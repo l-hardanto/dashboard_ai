@@ -3,52 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Data Science Dashboard</title>
+    <title>Data Science Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
         }
         .container {
-            text-align: center;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1rem;
         }
-        h1 {
-            color: #333;
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 1rem;
+            padding: 1rem;
+            flex: 1 1 calc(33% - 2rem);
+            box-sizing: border-box;
         }
-        p {
-            color: #666;
+        .card h3 {
+            margin-top: 0;
         }
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .button:hover {
-            background-color: #0056b3;
+        .chart {
+            width: 100%;
+            height: 200px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Data Science Dashboard</h1>
-        <p>Your one-stop solution for all data science needs.</p>
-        <a href="#" class="button">Get Started</a>
+    <div class="header">
+        <h1>Data Science Dashboard</h1>
+        <p>Subsurface and Engineering in the Age of AI</p>
     </div>
+    <div class="container">
+        <div class="card">
+            <h3>Data Overview</h3>
+            <div class="chart" id="overviewChart"></div>
+        </div>
+        <div class="card">
+            <h3>AI Predictions</h3>
+            <div class="chart" id="predictionsChart"></div>
+        </div>
+        <div class="card">
+            <h3>Engineering Metrics</h3>
+            <div class="chart" id="metricsChart"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctxOverview = document.getElementById('overviewChart').getContext('2d');
+        const ctxPredictions = document.getElementById('predictionsChart').getContext('2d');
+        const ctxMetrics = document.getElementById('metricsChart').getContext('2d');
+
+        const overviewChart = new Chart(ctxOverview, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Data Points',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const predictionsChart = new Chart(ctxPredictions, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Predictions',
+                    data: [3, 2, 1, 5, 6, 4],
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const metricsChart = new Chart(ctxMetrics, {
+            type: 'pie',
+            data: {
+                labels: ['Metric 1', 'Metric 2', 'Metric 3'],
+                datasets: [{
+                    label: 'Metrics',
+                    data: [10, 20, 30],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
 </body>
 </html>
